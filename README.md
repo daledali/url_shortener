@@ -13,9 +13,12 @@ pip install -r requirements.txt
 
 ### How to use
 
-Firstly, you have to register at bitly.com and get your personal token for API requests (check the [documentation](https://dev.bitly.com/get_started.html)).
+Firstly, you have to register at bitly.com and get your personal token for API requests (check the [documentation](https://dev.bitly.com/get_started.html)). This script uses [python-dotenv](https://github.com/theskumar/python-dotenv) module to import Bitly's token from ```.env``` file, so you need to create a new file named ".env" in the same folder with script and save your token there like that:
+```
+TOKEN=8abb48nmasdfkj4jkgb3md4j2f3jl
+```
 
-The only and required parameter is url. If you want to shorten url, just type it right after script name:
+The only and required parameter to run the script is url. If you want to shorten url, just type it right after the script name:
 ```
 $ python main.py http://somewebsite.com/
 Short link: http://bit.ly/2CpEKwW
