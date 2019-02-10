@@ -2,7 +2,7 @@ import requests
 import os
 import argparse
 from dotenv import load_dotenv
-load_dotenv()
+
 
 TOKEN = os.getenv("TOKEN")
 
@@ -24,7 +24,8 @@ def shorten_url(long_url):
 
 
 def get_clicks_count(short_url):
-    url = 'https://api-ssl.bitly.com/v4//bitlinks/{}/clicks/summary'.format(short_url)
+    url = 'https://api-ssl.bitly.com/v4//bitlinks/{}/clicks/summary'.\
+        format(short_url)
     headers = {
         "Authorization": "Bearer {}".format(TOKEN)
     }
@@ -61,8 +62,13 @@ def is_bitlink(url):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='This is a URL shortener and stats viewer.')
-    parser.add_argument('url', help='If you want to make your url short, just type it down. If you already have shortened url, type it down to see the stats.')
+    load_dotenv()
+    parser = argparse.ArgumentParser(description='This is a URL shortener \
+                                                  and stats viewer.')
+    parser.add_argument('url', help='If you want to make your url short, just \
+                                     type it down. If you already have \
+                                     shortened url, type it down to see the \
+                                     stats.')
     args = parser.parse_args()
 
     url = args.url
